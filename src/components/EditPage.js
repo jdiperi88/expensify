@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
 class  EditPage extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
     render(){
         return (
             <div> 
-                This is a edit page
+                editing id:{this.props.match.params.id}
             </div>
         )
     }

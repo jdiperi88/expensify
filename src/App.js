@@ -17,7 +17,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={ExpenseDashboard} />
               <Route path='/create' component={AddExpensePage} />
-              <Route path='/Edit' component={EditPage} />
+              <Route path='/Edit/:id' component={EditPage} />
               <Route path='/Help' component={HelpPage} />
               <Route component={NoMatch} />
             </Switch>

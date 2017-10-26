@@ -9,10 +9,10 @@ class Header extends Component{
         return(
             <div>
                 Expensify
+                <NavLink to='/' className='isActive'>Home</NavLink>
                 <NavLink exact to='/create' className='isActive'>Create Expense</NavLink>
-                <NavLink to='/Edit' className='isActive'>Edit Expense</NavLink>
                 <NavLink to='/Help' className='isActive'>Help Expense</NavLink>
-                <NavLink to='/Home' className='isActive'>Home</NavLink>
+                
             </div>
         )
     }
