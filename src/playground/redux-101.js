@@ -1,38 +1,53 @@
 import {createStore} from 'redux';
 
 //ACTION GENERATORS
-const incrementCount = (payload = {}) => ({
+const incrementCount = ({incrementBy = 1} = {}) => ({
     type: 'INCREMENT',
-    incrementBy: typeof payload.incrementBy === 'number' ? payload.incrementBy : 1
+    incrementBy
 })
+
+const decrementBy = ({decrementBy = 1} = {}) =>{
+    type: 'DECREMENT',
+    decrementBy
+}
+const resetCount = ()=>{
+    type: 'RESET'
+}
+
+const setCount = ({count})=>{
+    type: 'SET',
+    count
+}
+
+///REDUCERS!
+const countReducer = (state ={count:0}, action ) => {
+    
+        switch(action.type){
+            case 'INCREMENT':
+                return {
+                    count: state.count + incrementBy,
+                    
+                }
+            case 'DECREMENT':
+                return {
+                    count: state.count - decrementBy
+                }
+            case 'SET':
+                return {
+                    const: action.count
+                }
+            case 'RESET':
+                return {
+                    count: state.count = 0
+                }
+            default:
+                return state;
+        }
+    }
 
 //this function creates the redux store and takes one argument which is state
 //the second argument is the action
-const store = createStore((state ={count:0}, action ) => {
-
-    switch(action.type){
-        case 'INCREMENT':
-            return {
-                count: state.count + incrementBy,
-                
-            }
-        case 'DECREMENT':
-            const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1;
-            return {
-                count: state.count - decrementBy
-            }
-        case 'SET':
-            return {
-                const: action.count
-            }
-        case 'RESET':
-            return {
-                count: state.count = 0
-            }
-        default:
-            return state;
-    }
-});
+const store = createStore();
 
 //monitors changes in the store
 // store.subscribe(()=>{
@@ -55,15 +70,9 @@ const unsubscribe = store.subscribe(()=>{
 //Increment the count
 store.dispatch(incrementCount({ incrementBy: 5 }))
 
-store.dispatch({
-    type: 'RESET',
-    
-})
+store.dispatch(setCount({count: 101}));
 
-store.dispatch({
-    type: 'DECREMENT',
-    decrementBy: 10
-})
+store.dispatch({decrementBy: 10})
 
 store.dispatch({
     type: 'SET',
