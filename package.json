@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "css-loader": "^0.28.7",
+    "moment": "^2.19.1",
     "node-sass": "^4.5.3",
     "node-sass-chokidar": "0.0.3",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^15.0.0",
     "react-dom": "^16.0.0",
     "react-modal": "2.2.2",
     "react-redux": "^5.0.6",
